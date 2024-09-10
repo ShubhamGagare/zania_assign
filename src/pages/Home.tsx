@@ -83,7 +83,7 @@ function Home() {
                 <div className='flex w-full h-64 items-center'>
                     <div className='p-2 space-y-2 w-56 border shadow-md  rounded-md'>
                         {leftData.map((record: recordType) => {
-                            return (<div onClick={() => toggleChecked(record.id, true)} className={clsx("p-2 cursor-pointer border-gray-200 hover:bg-gray-400", {
+                            return (<div onClick={() => toggleChecked(record.id, true)} className={clsx("p-2 cursor-pointer border-gray-200 rounded-md hover:bg-gray-200", {
                                 "bg-black text-white": record.checked,
                             })} >
                                 <h1>{record.title}</h1>
@@ -91,13 +91,13 @@ function Home() {
                         })}
                     </div>
 
-                    <div className='flex-col p-2 space-y-2'>
-                        <MoveLeftIcon className='p-2 bg-blue-400 w-12 h-12' onClick={() => { transferLeft(rightData) }} />
-                        <MoveRightIcon className='p-2 bg-blue-400 w-12 h-12' onClick={() => { transferRight(leftData) }} />
+                    <div className='flex-col p-2 space-y-2 text-white'>
+                        <MoveLeftIcon className='p-2 bg-black  w-8 h-8 rounded-md' onClick={() => { transferLeft(rightData) }} />
+                        <MoveRightIcon className='p-2 bg-black w-8 h-8 rounded-md' onClick={() => { transferRight(leftData) }} />
                     </div>
-                    <div className='p-2 space-y-2 w-56 border shadow-md rounded-md min-h-60'>
+                    <div className='p-2 space-y-2 w-52 border shadow-md rounded-md min-h-52'>
                         {rightData.map((record: recordType) => {
-                            return (<div className={clsx('border-gray-200', { 'bg-black text-white': record.checked })} onClick={() => toggleChecked(record.id, false)}>
+                            return (<div className={clsx("p-2 cursor-pointer border-gray-200 rounded-md hover:bg-gray-200", { 'bg-black text-white': record.checked })} onClick={() => toggleChecked(record.id, false)}>
                                 <h1>{record.title}</h1>
                             </div>)
                         })}
@@ -105,15 +105,18 @@ function Home() {
 
 
                 </div>
-                <input
-                    placeholder="Add new record"
-                    value={newRecord}
-                    onChange={(e) => setNewRecord(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && addNewRecord()}
-                />
-                <button className='bg-blue-500 text-white p-4 rounded-md' onClick={addNewRecord}>
-                    Add Record
-                </button>
+                <div className='flex space-x-2'>
+                    <input
+                        className='p-2 border'
+                        placeholder="Add new record"
+                        value={newRecord}
+                        onChange={(e) => setNewRecord(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && addNewRecord()}
+                    />
+                    <button className='bg-black text-white p-4 rounded-md' onClick={addNewRecord}>
+                        Add Record
+                    </button>
+                </div>
             </div>
         </>
     )
