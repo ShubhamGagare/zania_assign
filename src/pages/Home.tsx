@@ -79,7 +79,7 @@ function Home() {
 
     return (
         <>
-            <div className='flex-col w-full h-screen  items-center space-y-4 m-56'>
+            <div className='flex-col w-full h-screen  items-center space-y-4 m-56 min-h-52'>
                 <div className='flex w-full h-64 items-center'>
                     <div className='p-2 space-y-2 w-56 border shadow-md  rounded-md'>
                         {leftData.map((record: recordType) => {
