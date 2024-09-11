@@ -104,8 +104,7 @@ function TaskDashboard() {
     newTasks[i] = { ...task, status: 'completed' }
     setTasks(newTasks)
 
-    console.log(JSON.stringify(newTasks))
-    console.log(JSON.stringify(tasks))
+
   }
 
   const taskDelete = (i: number) => {
@@ -115,8 +114,7 @@ function TaskDashboard() {
     newTasks.splice(i, 1)
     setTasks(newTasks)
 
-    console.log(JSON.stringify(newTasks))
-    console.log(JSON.stringify(tasks))
+
   }
 
   return (
